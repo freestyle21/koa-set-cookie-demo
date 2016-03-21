@@ -1,21 +1,17 @@
 {
-  "name": "tiny_koa_app",
+  "name": "koatest",
   "version": "0.0.0",
-  "description": "lil demo for node study group",
+  "description": "koa-test",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --harmony app.js"
+    "dev": "node-dev --harmony app.js"
   },
-  "keywords": [
-    "somethin",
-    "nothin"
-  ],
-  "author": "Colby Somerville",
+  "author": "qubaoming",
   "license": "MIT",
   "dependencies": {
-    "co-body": "^4.0.0",
-    "koa": "^1.0.0",
-    "mustache": "^2.1.3"
+    "koa": "^1.2.0",
+    "koa-router": "^5.4.0",
+    "koa-static": "^2.0.0",
+    "koa-views": "^4.1.0"
   }
 }
