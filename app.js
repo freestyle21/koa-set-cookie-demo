@@ -23,7 +23,7 @@ app.use(serve(path.join(__dirname, './')))
 
 
 router.get('/v1/test/', function *(next) {
-  this.cookies = {test6666: 66666}
+  this.cookies.set('test6666', 66666)
   this.body = {code: 200, message: 'success'}
   return yield next;
 })
