@@ -3,13 +3,13 @@
 const koa     = require('koa')
 const http    = require('http')
 const path    = require('path')
-const router = require('koa-router')();
+const router = require('koa-router');
 const render  = require('koa-views')
 const serve   = require('koa-static')
 const app = koa()
 
 app.use(function*(next) {
-  this.cookies.set('test', 999999);
+  this.cookies.set('test999', 19999);
   return yield next;
 })
 
@@ -20,22 +20,23 @@ app.use(serve(path.join(__dirname, './')))
            html: 'ejs'
         }
    }))
+   .use(router(app))
 
 
-router.get('/v1/test/', function *(next) {
-  this.cookies.set('test6666', 66666)
+app.get('/v1/test/', function *(next) {
+  this.cookies.set('test3333', 3333)
   this.body = {code: 200, message: 'success'}
   return yield next;
 })
 
 
-router.get('/', function *(next) {
+app.get('/', function *(next) {
   yield this.render('./index')
 })
 
-app
-  .use(router.routes())
-  .use(router.allowedMethods());
+// app
+//   .use(router.routes())
+//   .use(router.allowedMethods());
 
 
 http.createServer(app.callback()).listen(3000)
